@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chi Tiết Giao Hàng</title>
+  <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+  <link rel="stylesheet" href="detailpagethree.css">
+</head>
+<body>
+  <div class="navbar">
+    <div class="logo"><a href="mainpage.html"><i class='bx bxs-truck'></i></a></div>
+    <div class="dropdown">
+      <button>Thông tin</button>
+      <div class="dropdown-content">
+        <a href="#">Câu chuyện</a>
+        <a href="#">Team</a>
+        <a href="#">Tuyển dụng</a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button>Dịch vụ</button>
+      <div class="dropdown-content">
+        <a href="#">Bảng giá</a>
+        <a href="#">Tính năng</a>
+        <a href="#">Hỗ trợ</a>
+      </div>
+    </div>
+    <button class="login"><a href="login.html" style="color:white;"><span class="material-symbols-outlined">account_circle</span> Đăng nhập</a></button>
+  </div>
+
+  <form>
+    <h1 class="section-title">Bên giao hàng</h1>
+    <div class="form-section">
+      <div>
+        <label for="sender">Tên người giao</label>
+        <input id="sender" type="text">
+      </div>
+      <div>
+        <label for="senderAddress">Địa chỉ nhận hàng</label>
+        <input id="senderAddress" type="text">
+      </div>
+      <div>
+        <label for="senderPhone">Số điện thoại người giao</label>
+        <input id="senderPhone" type="text">
+      </div>
+    </div>
+
+    <h1 class="section-title">Bên nhận hàng</h1>
+    <div class="form-section">
+      <div>
+        <label for="receiver">Tên người nhận</label>
+        <input id="receiver" type="text">
+      </div>
+      <div>
+        <label for="receiverAddress">Địa chỉ người nhận</label>
+        <input id="receiverAddress" type="text">
+      </div>
+      <div>
+        <label for="receiverPhone">Số điện thoại người nhận</label>
+        <input id="receiverPhone" type="text">
+      </div>
+    </div>
+
+    <h1 class="section-title">Thông tin kiện hàng</h1>
+    <div class="form-section">
+      <div>
+        <label for="weight">Khối lượng (gram)</label>
+        <input id="weight" type="number">
+      </div>
+      <div>
+        <label for="size">Kích thước (cm)</label>
+        <input id="size" type="text">
+      </div>
+      <div class="formm">
+        <label>Cách thức thanh toán</label>
+        <div class="radio-group">
+          <label><input type="radio" name="payment" value="cash" class="iii"> Tiền mặt</label>
+          <label><input type="radio" name="payment" value="transfer" class="iii"> Chuyển khoản</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="price-box" id="totalPrice">Tổng tiền cần trả: 0 VNĐ</div>
+
+    <button type="submit" class="submit-btn" id="buttonsubmit">Gửi đơn hàng</button>
+    <div id="orderList"></div>
+
+  </form>
+
+  <script src="detailpagethree.js" type="module"></script>
+  <script src=""></script>
+</body>
+</html>
