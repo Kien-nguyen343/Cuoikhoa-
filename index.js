@@ -1,0 +1,1 @@
+window.location.href =  './cuối khoá 2/mainpage.html';
