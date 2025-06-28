@@ -1,24 +1,57 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Đăng nhập với Google</title>
-  <link rel="stylesheet" href="login.css">
-  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Đăng nhập</title>
+  <link rel="stylesheet" href="auth-style.css" />
 </head>
 <body>
-  <div class="login-container">
-    <h2>Đăng nhập Delivering 24/7</h2>
-    <p>Sử dụng tài khoản Google để tiếp tục</p>
-    <button id="loginBtn"><i class='bx bxl-google'></i> Đăng nhập với Google</button>
-
-    <p style="margin-top: 20px;">
-      Chưa có tài khoản? <a href="register.html">Đăng ký tại đây</a>
-    </p>
+  <div class="auth-container">
+    <h2>Đăng nhập</h2>
+    <form id="loginForm">
+      <input type="email" id="loginEmail" placeholder="Email" required />
+      <input type="password" id="loginPassword" placeholder="Mật khẩu" required />
+      <button type="submit">Đăng nhập</button>
+    </form>
+    <p>Chưa có tài khoản? <a href="register.html">Đăng ký</a></p>
+    <p id="message"></p>
   </div>
 
-  <script src="login.js"type="module">
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
+    import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyA3el0YqnfwzOX5KQsnySXGtfVAAGNXK4w",
+      authDomain: "mindx-2ba76.firebaseapp.com",
+      projectId: "mindx-2ba76",
+      storageBucket: "mindx-2ba76.firebasestorage.app",
+      messagingSenderId: "209408053802",
+      appId: "1:209408053802:web:bae58daaa370835f886953",
+      measurementId: "G-CBDQ5FZLK9"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    document.getElementById("loginForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const email = document.getElementById("loginEmail").value;
+      const password = document.getElementById("loginPassword").value;
+      const msg = document.getElementById("message");
+
+      signInWithEmailAndPassword(auth, email, password)
+        .then(() => {
+          msg.style.color = "green";
+          msg.textContent = "Đăng nhập thành công!";
+          window.location.href = "mainpage.html";
+        })
+        .catch((error) => {
+          msg.style.color = "red";
+          msg.textContent = "Lỗi: " + error.message;
+        });
+    });
   </script>
 </body>
 </html>
