@@ -3,21 +3,54 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Đăng ký tài khoản</title>
-  <link rel="stylesheet" href="login.css">
+  <title>Đăng ký</title>
+  <link rel="stylesheet" href="auth-style.css" />
 </head>
 <body>
-  <div class="login-container">
-    <h2>Đăng ký tài khoản</h2>
+  <div class="auth-container">
+    <h2>Đăng ký</h2>
     <form id="registerForm">
-      <input type="email" id="email" placeholder="Email của bạn" required />
-      <input type="password" id="password" placeholder="Mật khẩu (tối thiểu 6 ký tự)" required />
+      <input type="email" id="registerEmail" placeholder="Email" required />
+      <input type="password" id="registerPassword" placeholder="Mật khẩu" required />
       <button type="submit">Tạo tài khoản</button>
     </form>
     <p>Đã có tài khoản? <a href="login.html">Đăng nhập</a></p>
+    <p id="message"></p>
   </div>
 
-  <script src="register.js"type="module">
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
+    import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyA3el0YqnfwzOX5KQsnySXGtfVAAGNXK4w",
+      authDomain: "mindx-2ba76.firebaseapp.com",
+      projectId: "mindx-2ba76",
+      storageBucket: "mindx-2ba76.firebasestorage.app",
+      messagingSenderId: "209408053802",
+      appId: "1:209408053802:web:bae58daaa370835f886953",
+      measurementId: "G-CBDQ5FZLK9"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    document.getElementById("registerForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const email = document.getElementById("registerEmail").value;
+      const password = document.getElementById("registerPassword").value;
+      const msg = document.getElementById("message");
+
+      createUserWithEmailAndPassword(auth, email, password)
+        .then(() => {
+          msg.style.color = "green";
+          msg.textContent = "Đăng ký thành công!";
+        })
+        .catch((error) => {
+          msg.style.color = "red";
+          msg.textContent = "Lỗi: " + error.message;
+        });
+    });
   </script>
 </body>
 </html>
