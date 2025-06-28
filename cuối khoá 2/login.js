@@ -16,18 +16,22 @@ const firebaseConfig = {
   measurementId: "G-CBDQ5FZLK9"
 };
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-console.log(app);
-const auth = getAuth(app)
-const provider = new GoogleAuthProvider();
-let btn = document.querySelector("button");
-btn.addEventListener("click", function () {
-    signInWithPopup(auth, provider)
-    .then((result) => {
-        const user = result.user;
-        console.log(user);
-        alert("Login success");
-        window.location.href = "mainpage.html"; 
-    })
-})
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const provider = new GoogleAuthProvider();
+
+    const loginBtn = document.getElementById("loginBtn");
+
+    loginBtn.addEventListener("click", function () {
+      signInWithPopup(auth, provider)
+        .then((result) => {
+          const user = result.user;
+          console.log(user);
+          alert("Đăng nhập thành công!");
+          window.location.href = "mainpage.html";
+        })
+        .catch((error) => {
+          console.error("Lỗi đăng nhập:", error);
+          alert("Đăng nhập thất bại. Vui lòng thử lại.");
+        });
+    });

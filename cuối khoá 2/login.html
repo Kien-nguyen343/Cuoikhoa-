@@ -1,32 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
-    <link rel="stylesheet" href="login.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Đăng nhập với Google</title>
+  <link rel="stylesheet" href="login.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
-    <div class="login-container">
-        <h2>Login</h2>
-        <form action="#">
-            <div class="input-group">
-                <label for="username">Username</label>
-                <input type="text" id="username" name="username" placeholder="Enter your username" required>
-            </div>
-            <div class="input-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" placeholder="Enter your password" required>
-            </div>
-            <button type="submit" class="submit-btn">Login</button>
-            <div class="forgot-password">
-                <a href="#">Forgot your password?</a>
-            </div>
-            <div class="register">
-                <a href="register.html">Register</a>
-            </div>
-        </form>
-        <script src="login.js" type="module"></script>
-    </div>
+  <div class="login-container">
+    <h2>Đăng nhập Delivering 24/7</h2>
+    <p>Sử dụng tài khoản Google để tiếp tục</p>
+    <button id="loginBtn"><i class='bx bxl-google'></i> Đăng nhập với Google</button>
+
+    <p style="margin-top: 20px;">
+      Chưa có tài khoản? <a href="register.html">Đăng ký tại đây</a>
+    </p>
+  </div>
+
+  <script src="login.js"type="module">
+  </script>
 </body>
 </html>

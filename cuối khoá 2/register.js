@@ -1,33 +1,32 @@
-let form = document.querySelector('form');
-let users = [];
-function signUp(e) { 
-    e.preventDefault();
-    let username = document.getElementById('username').value;
-    let password = document.getElementById('password').value;
-    let confirmPassword = document.getElementById('confirm-password').value;
-    if(username.length < 3){
-        alert('Username must be at least 3 characters');
-        return;
-    }
-    if (password !== confirmPassword) {
-        alert('Password does not match');
-        return;
-    }
-    if (localStorage.getItem('users')) {
-        users = JSON.parse(localStorage.getItem('users'));
-        for (let i =0; i < users.length; i++) {
-            if (username === users[i].username) {
-                alert('Username already exists');
-                return;
-            }
-        }
-    }
-    users.push({
-        username: username,
-        password: password,
+import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
+import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-auth.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyA3el0YqnfwzOX5KQsnySXGtfVAAGNXK4w",
+  authDomain: "mindx-2ba76.firebaseapp.com",
+  projectId: "mindx-2ba76",
+  storageBucket: "mindx-2ba76.firebasestorage.app",
+  messagingSenderId: "209408053802",
+  appId: "1:209408053802:web:bae58daaa370835f886953",
+  measurementId: "G-CBDQ5FZLK9"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+const registerForm = document.getElementById("registerForm");
+
+registerForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+
+  createUserWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      alert("Đăng ký thành công!");
+      window.location.href = "login.html";
+    })
+    .catch((error) => {
+      alert("Lỗi: " + error.message);
     });
-    localStorage.setItem('users', JSON.stringify(users));
-    alert('User registered successfully');
-    window.location.href = 'login.html';
-}
-form.addEventListener('submit', signUp);
+});
