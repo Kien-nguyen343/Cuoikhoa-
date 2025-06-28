@@ -4,9 +4,11 @@ body {
   background-color: white;
   color: #333;
 }
+
 .login{
   margin-left: 750px;
 }
+
 .navbar {
   display: flex;
   align-items: center;
@@ -14,18 +16,21 @@ body {
   padding: 10px 20px;
   gap: 20px;
 }
+
 .navbar button,
 .navbar a {
   color: white;
   background: none;
   border: none;
   cursor: pointer;
-  font-size: 16px; 
+  font-size: 16px;
   text-decoration: none;
 }
+
 .dropdown {
   position: relative;
 }
+
 .dropdown-content {
   display: none;
   position: absolute;
@@ -36,21 +41,26 @@ body {
   border: 1px solid white;
   border-radius: 10px;
 }
+
 .dropdown-content button {
   color: black;
   padding: 12px 16px;
   display: block;
 }
+
 .dropdown:hover .dropdown-content {
   display: block;
 }
+
 .mainpage {
   position: relative;
 }
+
 .mainpage img {
   width: 100%;
   height: auto;
 }
+
 .item {
   justify-content: center;
   display: flex;
@@ -64,6 +74,7 @@ body {
   transition: all 0.5s;
   border-radius: 10px;
 }
+
 .item button {
   background: white;
   border: none;
@@ -73,72 +84,97 @@ body {
   border-radius: 8px;
   cursor: pointer;
 }
+
 .item button:hover {
   background: #ffd6a0;
 }
+
 .campaignone {
   text-align: center;
   margin: 50px 20px;
 }
+
 .campaignone h1 {
   color: orange;
   font-size: 36px;
 }
+
 .campaignone p {
   font-size: 20px;
   color: #555;
 }
+
 .features {
   display: flex;
   justify-content: space-around;
   padding: 40px;
   background-color: #fef4e7;
 }
+
 .feature {
   text-align: center;
   max-width: 300px;
 }
+
 .feature img {
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
+  width: 100% !important;
+  max-width: 280px !important;
+  height: 200px !important;
+  object-fit: cover !important;
+  border-radius: 12px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
 }
+
+
+.feature img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
 .feature h3 {
   color: orange;
 }
+
 .footer {
   background-color: #333;
   color: white;
   padding: 40px 20px;
 }
+
 .footer-container {
   display: flex;
   flex-wrap: wrap;
   gap: 30px;
   justify-content: space-between;
 }
+
 .footer-container h2 {
   color: orange;
 }
+
 .footer-container ul {
   list-style: none;
   padding: 0;
 }
+
 .map-style {
   height: 300px;
   width: 100%;
   border-radius: 10px;
 }
+
 .infor{
   background-color: transparent;
   border: none;
   color: white;
-  
 }
+
 #id{
   width: 50px;
   height: 50px;
 }
+
 .item:hover {
   right: 0px;
 }
