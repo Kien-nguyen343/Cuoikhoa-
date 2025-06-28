@@ -28,6 +28,6 @@ btn.addEventListener("click", function () {
         const user = result.user;
         console.log(user);
         alert("Login success");
-        window.location.href = 'mainpage.html'; 
+        window.location.href = "mainpage.html"; 
     })
 })
